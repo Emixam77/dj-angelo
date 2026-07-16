@@ -595,11 +595,15 @@
         setTimeout(() => btn.textContent = 'Envoyer ma demande →', 2500);
         return;
       }
-      const subject = encodeURIComponent(`[DJ Angelo] Demande — ${service}`);
-      const body = encodeURIComponent(`Prénom : ${firstName}\nNom : ${lastName}\nEmail : ${email}\nService : ${service}\n\n${message}`);
-      window.location.href = `mailto:booking.djangelo@gmail.com?subject=${subject}&body=${body}`;
+      // Feedback visuel immédiat (libère le thread → fix INP)
       btn.textContent = '✓ Message envoyé !';
       btn.style.background = 'linear-gradient(135deg, #4ade80, #16a34a)';
+      // Encodage + redirection différés hors du gestionnaire d'événement
+      setTimeout(() => {
+        const subject = encodeURIComponent(`[DJ Angelo] Demande — ${service}`);
+        const body = encodeURIComponent(`Prénom : ${firstName}\nNom : ${lastName}\nEmail : ${email}\nService : ${service}\n\n${message}`);
+        window.location.href = `mailto:booking.djangelo@gmail.com?subject=${subject}&body=${body}`;
+      }, 80);
       setTimeout(() => { btn.textContent = 'Envoyer ma demande →'; btn.style.background = ''; document.getElementById('contactForm').reset(); }, 3000);
     }
 
