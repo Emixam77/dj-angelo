@@ -116,19 +116,19 @@
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 1200px; margin: 0 auto; }
 
     .service-card { background: rgba(7,6,14,0.7); border: 1px solid var(--c-border); border-radius: var(--radius-lg); padding: 48px 40px; position: relative; overflow: hidden; transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition); }
-    .service-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(212,168,67,0.06) 0%, transparent 60%); opacity: 0; transition: opacity var(--transition); }
+    .service-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(135deg, rgba(212,168,67,0.06) 0%, transparent 60%); opacity: 0; pointer-events: none; transition: opacity var(--transition); }
     .service-card:hover { transform: translateY(-8px); border-color: rgba(212,168,67,0.4); box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 40px rgba(212,168,67,0.08); }
     .service-card:hover::before { opacity: 1; }
     .service-card-number { font-family: var(--ff-display); font-size: 5rem; font-weight: 900; line-height: 1; color: rgba(212,168,67,0.07); position: absolute; top: 28px; right: 36px; pointer-events: none; transition: color var(--transition); }
     .service-card:hover .service-card-number { color: rgba(212,168,67,0.14); }
-    .service-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, rgba(212,168,67,0.15), rgba(212,168,67,0.06)); border: 1px solid rgba(212,168,67,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; font-size: 1.5rem; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
+    .service-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, rgba(212,168,67,0.15), rgba(212,168,67,0.06)); border: 1px solid rgba(212,168,67,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 28px; font-size: 1.5rem; position: relative; z-index: 2; transition: background var(--transition), border-color var(--transition), transform var(--transition); }
     .service-card:hover .service-icon { background: linear-gradient(135deg, rgba(212,168,67,0.25), rgba(212,168,67,0.1)); border-color: rgba(212,168,67,0.5); transform: scale(1.05); }
-    .service-name { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.2; }
-    .service-desc { font-size: 0.92rem; color: var(--c-muted); line-height: 1.85; margin-bottom: 32px; }
-    .service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; }
+    .service-name { font-family: var(--ff-display); font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; line-height: 1.2; position: relative; z-index: 2; }
+    .service-desc { font-size: 0.92rem; color: var(--c-muted); line-height: 1.85; margin-bottom: 32px; position: relative; z-index: 2; }
+    .service-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; position: relative; z-index: 2; }
     .service-features li { font-size: 0.85rem; color: rgba(240,237,230,0.6); display: flex; align-items: center; gap: 10px; }
     .service-features li::before { content: '✦'; color: var(--c-gold); font-size: 0.55rem; flex-shrink: 0; }
-    .service-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--ff-label); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-gold); border-bottom: 1px solid rgba(212,168,67,0.3); padding-bottom: 2px; transition: gap var(--transition), border-color var(--transition); }
+    .service-link { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 8px; font-family: var(--ff-label); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--c-gold); border-bottom: 1px solid rgba(212,168,67,0.3); padding-bottom: 2px; transition: gap var(--transition), border-color var(--transition); cursor: pointer; }
     .service-link:hover { gap: 14px; border-color: var(--c-gold); }
 
     /* ABOUT */
