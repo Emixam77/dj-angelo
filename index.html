@@ -206,6 +206,9 @@
     .burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .burger.open span:nth-child(2) { opacity: 0; }
     .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* Mobile menu — caché par défaut sur tous les écrans */
+    .mobile-menu { display: none; }
+    .menu-overlay { display: none; }
 
     /* --- Tablet (≤1024px) --- */
     @media (max-width: 1024px) {
@@ -216,6 +219,7 @@
 
       /* Mobile nav drawer */
       .mobile-menu {
+        display: flex !important;
         position: fixed; top: 0; right: 0; bottom: 0;
         width: min(80vw, 300px);
         background: rgba(17,15,28,0.97);
@@ -223,7 +227,7 @@
         border-left: 1px solid var(--c-border);
         z-index: 150;
         padding: 90px 36px 48px;
-        display: flex; flex-direction: column; gap: 32px;
+        flex-direction: column; gap: 32px;
         transform: translateX(100%);
         transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94);
       }
@@ -241,11 +245,7 @@
         color: var(--c-bg); border-radius: var(--radius-sm); text-align: center;
         font-weight: 700; border-bottom: none;
       }
-      /* Overlay behind menu */
-      .menu-overlay {
-        display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 140;
-      }
-      .menu-overlay.open { display: block; }
+      .menu-overlay.open { display: block !important; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 140; }
 
       .hero-content { padding: 0 24px 70px; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 28px 24px; }
@@ -299,7 +299,13 @@
   <!-- NAV -->
   <nav class="nav" id="mainNav" role="navigation" aria-label="Navigation principale">
     <div class="nav-logo">DJ <em>Angelo</em></div>
-    <!-- Burger button -->
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">À Propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta" id="navCta">Me contacter</a>
+    <!-- Burger button (mobile uniquement) -->
     <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
       <span></span><span></span><span></span>
     </button>
